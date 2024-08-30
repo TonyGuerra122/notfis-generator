@@ -9,7 +9,7 @@
                 "mandatory": true
             },
             {
-                "name": "IDENTIFICADOR DE DESTINATÁRIO",
+                "name": "IDENTIFICAÇÃO DE DESTINATÁRIO",
                 "format": "A",
                 "size": 35,
                 "position": 39,
@@ -46,7 +46,7 @@
                 "mandatory": true
             },
             {
-                "name": "IDENTIFICADOR DO DOCUMENTO",
+                "name": "IDENTIFICAÇÃO DO DOCUMENTO",
                 "format": "A",
                 "size": 14,
                 "position": 4,
