@@ -9,13 +9,6 @@
                 "mandatory": true
             },
             {
-                "name": "IDENTIFICADOR DE REMETENTE",
-                "format": "A",
-                "size": 35,
-                "position": 4,
-                "mandatory": true
-            },
-            {
                 "name": "IDENTIFICADOR DE DESTINATÁRIO",
                 "format": "A",
                 "size": 35,
@@ -34,13 +27,6 @@
                 "format": "N",
                 "size": 4,
                 "position": 80,
-                "mandatory": true
-            },
-            {
-                "name": "IDENTIFICADOR DE INTERCÂMBIO",
-                "format": "A",
-                "size": 12,
-                "position": 84,
                 "mandatory": true
             },
             {
