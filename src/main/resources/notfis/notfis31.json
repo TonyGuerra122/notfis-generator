@@ -490,13 +490,6 @@
                 "mandatory": false
             },
             {
-                "name": "DATA FINAL DE ENTREGA",
-                "format": "N",
-                "size": 8,
-                "position": 21,
-                "mandatory": true
-            },
-            {
                 "name": "HORA INICIAL DE ENTREGA",
                 "format": "N",
                 "size": 4,
