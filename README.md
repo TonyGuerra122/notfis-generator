@@ -61,3 +61,13 @@ O `JSON` especificado deve vir no seguinte formato:
     ]
 }
 ```
+
+### Instalação
+Este projeto oferece instalação via `Maven`:
+```bash
+ <dependency>
+  <groupId>io.github.tonyguerra122</groupId>
+  <artifactId>notfis-generator</artifactId>
+  <version>1.0-SNAPSHOT</version>
+</dependency> 
+```
