@@ -474,13 +474,6 @@
                 "mandatory": false
             },
             {
-                "name": "CHAVE ELETRÔNICA DA NOTA FISCAL ELETRÔNICA",
-                "format": "A",
-                "size": 44,
-                "position": 239,
-                "mandatory": true
-            },
-            {
                 "name": "NUMERO PEDIDO DO CLIENTE",
                 "format": "A",
                 "size": 18,
