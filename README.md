@@ -42,21 +42,22 @@ File generatedEdiFile = notfisWrite.writeFile(jsonData, "notfis.txt");
 O `JSON` especificado deve vir no seguinte formato:
 ```bash
 {
-    "lines": [
-        [
-            {
-            "name": "IDENTIFICADOR DE REGISTRO",
-            "value": "000"
-            },
-            {
-                "name": "IDENTIFICADOR DO REMETENTE",
-                "value": "0000000"
-            }
-        ],
+    "000": [
+        
+        {
+          "name": "IDENTIFICADOR DE REGISTRO",
+          "value": "000"
+        },
+
+        {
+            "name": "IDENTIFICADOR DO REMETENTE",
+            "value": "0000000"
+        },
+        
         {
             "name": "IDENTIFICADOR DE REGISTRO",
             "value": "320"
-        },
+        }
         ...
     ]
 }
@@ -65,9 +66,9 @@ O `JSON` especificado deve vir no seguinte formato:
 ### Instalação
 Este projeto oferece instalação via `Maven`:
 ```bash
- <dependency>
-  <groupId>io.github.tonyguerra122</groupId>
-  <artifactId>notfis-generator</artifactId>
-  <version>1.1-SNAPSHOT</version>
-</dependency> 
+  <dependency>
+    <groupId>io.github.tonyguerra122</groupId>
+    <artifactId>notfis-generator</artifactId>
+    <version>1.2-SNAPSHOT</version>
+  </dependency> 
 ```
