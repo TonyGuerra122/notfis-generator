@@ -333,30 +333,60 @@
         {
             "name": "QTDE DE VOLUMES",
             "format": "N",
-            "size": 52,
+            "size": 7,
             "position": 79,
             "mandatory": true
         },
         {
             "name": "VALOR TOTAL DA NOTA",
-            "format": "N",
-            "size": 132,
+            "format": "A",
+            "size": 15,
             "position": 86,
             "mandatory": true
         },
         {
-            "name": "PESO TOTAL DA MERCADORIA A TRANSP.",
+            "name": "PESO TOTAL DA MERCADORIA A TRANSP",
             "format": "N",
-            "size": 52,
+            "size": 7,
             "position": 101,
             "mandatory": true
         },
         {
             "name": "PESO DENSIDADE/CUBAGEM",
             "format": "N",
-            "size": 32,
+            "size": 5,
             "position": 108,
             "mandatory": false
+        }
+    ],
+    "333": [
+        {
+            "name": "IDENTIFICADOR DE REGISTRO",
+            "format": "N",
+            "size": 3,
+            "position": 1,
+            "mandatory": true
+        },
+        {
+            "name": "CÓDIGO DA OPERAÇÃO FISCAL NOTA FISCAL",
+            "format": "N",
+            "size": 4,
+            "position": 4,
+            "mandatory": true
+        },
+        {
+            "name": "TIPO DE PERÍODO DE ENTREGA",
+            "format": "N",
+            "size": 1,
+            "position": 8,
+            "mandatory": true
+        },
+        {
+            "name": "CÁLCULO DE FRETE DIFERENCIADO? (S/N)",
+            "format": "A",
+            "size": 1,
+            "position": 48,
+            "mandatory": true
         }
     ],
     "314": [
@@ -370,7 +400,7 @@
         {
             "name": "QUANTIDADE DE VOLUMES",
             "format": "N",
-            "size": 52,
+            "size": 7,
             "position": 4,
             "mandatory": true
         },
@@ -679,42 +709,42 @@
         {
             "name": "VALOR TOTAL DAS NOTAS FISCAIS",
             "format": "N",
-            "size": 132,
+            "size": 15,
             "position": 4,
             "mandatory": true
         },
         {
             "name": "PESO TOTAL DAS NOTAS FISCAIS",
             "format": "N",
-            "size": 132,
+            "size": 15,
             "position": 19,
             "mandatory": true
         },
         {
             "name": "PESO TOTAL DENSIDADE/CUBAGEM",
             "format": "N",
-            "size": 132,
+            "size": 15,
             "position": 34,
             "mandatory": false
         },
         {
             "name": "QUANTIDADE TOTAL DE VOLUMES",
             "format": "N",
-            "size": 132,
+            "size": 15,
             "position": 49,
             "mandatory": true
         },
         {
             "name": "VALOR TOTAL A SER COBRADO",
             "format": "N",
-            "size": 132,
+            "size": 15,
             "position": 64,
             "mandatory": false
         },
         {
             "name": "VALOR TOTAL DO SEGURO",
             "format": "N",
-            "size": 132,
+            "size": 15,
             "position": 79,
             "mandatory": false
         },

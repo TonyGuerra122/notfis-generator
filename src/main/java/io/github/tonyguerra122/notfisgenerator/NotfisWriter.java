@@ -86,8 +86,15 @@ public final class NotfisWriter {
 
                 if (matchingParam != null) {
                     final Object value = matchingParam.opt("value");
+                    if (value == null) {
+                        throw new NotfisException(
+                                "Valor nulo encontrado no campo '" + name + "' no identificador " + identifier);
+                    }
                     final NotfisField field = new NotfisField(name, format, position, size, mandatory, value);
                     populatedFields.add(field);
+                } else if (mandatory) {
+                    throw new NotfisException(
+                            "Campo obrigatório '" + name + "' não encontrado no identificador " + identifier);
                 }
 
                 fieldMandatory.put(name, mandatory);
@@ -108,7 +115,8 @@ public final class NotfisWriter {
                     .collect(Collectors.joining(", "));
 
             if (!errorMessage.isEmpty()) {
-                throw new NotfisException("Os seguintes campos obrigatórios estão ausentes: " + errorMessage);
+                throw new NotfisException("Os seguintes campos obrigatórios estão ausentes no identificador "
+                        + identifier + ": " + errorMessage);
             }
 
             populatedLines.add(populatedFields);
@@ -123,7 +131,7 @@ public final class NotfisWriter {
         final File outputFile = new File(filename);
 
         try (var writer = new java.io.FileWriter(outputFile)) {
-            for (final List<NotfisField> line : lines) {
+            for (final List<NotfisField> line : lines) { // Linha 137
                 final int totalLength = line.stream()
                         .mapToInt(field -> field.getPosition() + field.getSize())
                         .max()
@@ -151,8 +159,8 @@ public final class NotfisWriter {
                 writer.write(new String(lineChars));
                 writer.write("\n");
             }
-        } catch (IOException ex) {
-            throw new NotfisException("Erro ao escrever o arquivo: " + ex.getMessage());
+        } catch (Exception ex) {
+            throw new NotfisException("Erro ao escrever o arquivo: " + filename);
         }
 
         return outputFile;
