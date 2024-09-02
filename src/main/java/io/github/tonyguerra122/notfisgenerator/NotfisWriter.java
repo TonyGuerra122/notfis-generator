@@ -48,32 +48,36 @@ public final class NotfisWriter {
     private void checkAllFields(JSONObject json) throws NotfisException {
         loadConfigFile();
 
-        final JSONArray jsonLines = json.getJSONArray("lines");
-        final JSONArray configLines = configFile.getJSONArray("lines");
+        final Map<String, List<JSONObject>> configLinesMap = new HashMap<>();
+        for (String key : configFile.keySet()) {
+            configLinesMap.put(key, JSONUtils.jsonArrayToListJsonObject(configFile.getJSONArray(key)));
+        }
 
         final List<List<NotfisField>> populatedLines = new ArrayList<>();
 
-        for (int i = 0; i < jsonLines.length(); i++) {
-            final JSONArray jsonLine = jsonLines.getJSONArray(i);
-            final JSONArray configLine = configLines.getJSONArray(i);
+        for (String identifier : json.keySet()) {
+            final JSONArray jsonLines = json.getJSONArray(identifier);
+            final List<JSONObject> configLines = configLinesMap.get(identifier);
+
+            if (configLines == null) {
+                throw new NotfisException("Identificador de registro não encontrado na configuração: " + identifier);
+            }
 
             final Map<String, Boolean> fieldMandatory = new HashMap<>();
             final List<NotfisField> populatedFields = new ArrayList<>();
 
-            final List<JSONObject> configObjects = JSONUtils.jsonArrayToListJsonObject(configLine);
-
-            for (JSONObject jsonObj : configObjects) {
-                final String name = jsonObj.optString("name");
-                final NotfisFieldType format = jsonObj.optString("format", "A").equals("A")
+            for (JSONObject configObj : configLines) {
+                final String name = configObj.optString("name");
+                final NotfisFieldType format = configObj.optString("format", "A").equals("A")
                         ? NotfisFieldType.ALPHANUMERIC
                         : NotfisFieldType.NUMERIC;
-                final short position = (short) jsonObj.optInt("position");
-                final short size = (short) jsonObj.optInt("size");
-                final boolean mandatory = jsonObj.optBoolean("mandatory");
+                final short position = (short) configObj.optInt("position");
+                final short size = (short) configObj.optInt("size");
+                final boolean mandatory = configObj.optBoolean("mandatory");
 
                 JSONObject matchingParam = null;
-                for (int j = 0; j < jsonLine.length(); j++) {
-                    final JSONObject param = jsonLine.getJSONObject(j);
+                for (int j = 0; j < jsonLines.length(); j++) {
+                    final JSONObject param = jsonLines.getJSONObject(j);
                     if (name.equals(param.optString("name"))) {
                         matchingParam = param;
                         break;
@@ -92,8 +96,8 @@ public final class NotfisWriter {
             final String errorMessage = fieldMandatory.entrySet().stream()
                     .filter(Map.Entry::getValue)
                     .filter(fields -> {
-                        for (int j = 0; j < jsonLine.length(); j++) {
-                            JSONObject param = jsonLine.getJSONObject(j);
+                        for (int j = 0; j < jsonLines.length(); j++) {
+                            JSONObject param = jsonLines.getJSONObject(j);
                             if (fields.getKey().equals(param.optString("name"))) {
                                 return false;
                             }
