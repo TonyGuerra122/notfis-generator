@@ -69,6 +69,6 @@ Este projeto oferece instalação via `Maven`:
   <dependency>
     <groupId>io.github.tonyguerra122</groupId>
     <artifactId>notfis-generator</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2.0</version>
   </dependency> 
 ```
