@@ -84,78 +84,99 @@
         {
             "name": "NOME DA EMPRESA EMBARCADORA (RAZÃO SOCIAL)",
             "format": "A",
-            "size": 40,
+            "size": 50,
             "position": 4,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "CNPJ (CGC)",
             "format": "N",
             "size": 14,
-            "position": 44,
+            "position": 54,
             "mandatory": true
         },
         {
             "name": "INSCRIÇÃO ESTADUAL EMBARCADORA",
             "format": "A",
             "size": 15,
-            "position": 58,
-            "mandatory": true
+            "position": 68,
+            "mandatory": false
         },
         {
             "name": "INSCRIÇÃO ESTADUAL DO SUBSTITUTO TRIBUTÁRIO",
             "format": "A",
             "size": 15,
-            "position": 73,
+            "position": 83,
+            "mandatory": false
+        },
+        {
+            "name": "INSCRIÇÃO MUNICIPAL",
+            "format": "A",
+            "size": 15,
+            "position": 98,
             "mandatory": false
         },
         {
             "name": "ENDEREÇO (LOGRADOURO)",
             "format": "A",
-            "size": 40,
-            "position": 88,
+            "size": 50,
+            "position": 113,
+            "mandatory": false
+        },
+        {
+            "name": "BAIRRO",
+            "format": "A",
+            "size": 35,
+            "position": 163,
             "mandatory": false
         },
         {
             "name": "CIDADE (MUNICÍPIO)",
             "format": "A",
-            "size": 40,
-            "position": 128,
-            "mandatory": true
+            "size": 35,
+            "position": 198,
+            "mandatory": false
         },
         {
-            "name": "CEP",
-            "format": "N",
-            "size": 8,
-            "position": 168,
-            "mandatory": true
-        },
-        {
-            "name": "SIGLA DO ESTADO (UF) SUBENTIDADE DE PAÍS",
+            "name": "CÓDIGO POSTAL",
             "format": "A",
-            "size": 4,
-            "position": 176,
+            "size": 9,
+            "position": 233,
             "mandatory": true
+        },
+        {
+            "name": "CÓDIGO DE MUNICÍPIO",
+            "format": "A",
+            "size": 9,
+            "position": 242,
+            "mandatory": false
+        },
+        {
+            "name": "SIGLA DO ESTADO (UF)",
+            "format": "A",
+            "size": 9,
+            "position": 251,
+            "mandatory": false
         },
         {
             "name": "DATA DO EMBARQUE DAS MERCADORIAS",
             "format": "N",
             "size": 8,
-            "position": 180,
-            "mandatory": true
+            "position": 260,
+            "mandatory": false
         },
         {
             "name": "ÁREA DE FRETE",
             "format": "A",
             "size": 4,
-            "position": 188,
+            "position": 268,
             "mandatory": false
         },
         {
             "name": "CONTATO PARA EMERGÊNCIAS",
             "format": "A",
             "size": 25,
-            "position": 192,
+            "position": 272,
             "mandatory": false
         },
         {
@@ -186,7 +207,7 @@
             "format": "N",
             "size": 14,
             "position": 54,
-            "mandatory": false
+            "mandatory": true
         },
         {
             "name": "ENDEREÇO (LOGRADOURO)",
@@ -198,7 +219,7 @@
         {
             "name": "BAIRRO",
             "format": "A",
-            "size": 30,
+            "size": 35,
             "position": 118,
             "mandatory": false
         },
@@ -206,49 +227,49 @@
             "name": "CIDADE (MUNICÍPIO)",
             "format": "A",
             "size": 35,
-            "position": 148,
+            "position": 153,
             "mandatory": false
         },
         {
             "name": "CÓDIGO POSTAL",
-            "format": "N",
+            "format": "A",
             "size": 9,
-            "position": 183,
-            "mandatory": false
+            "position": 188,
+            "mandatory": true
         },
         {
             "name": "CÓDIGO DE MUNICÍPIO",
             "format": "A",
             "size": 9,
-            "position": 192,
+            "position": 197,
             "mandatory": false
         },
         {
-            "name": "SIGLA DO ESTADO (UF) SUBENTIDADE DE PAÍS",
+            "name": "SIGLA DO ESTADO (UF)",
             "format": "A",
-            "size": 3,
-            "position": 201,
+            "size": 9,
+            "position": 206,
             "mandatory": false
         },
         {
             "name": "NÚMERO DE COMUNICAÇÃO",
             "format": "A",
-            "size": 25,
-            "position": 204,
+            "size": 35,
+            "position": 215,
             "mandatory": false
         },
         {
             "name": "ÁREA DE FRETE",
             "format": "A",
             "size": 4,
-            "position": 229,
+            "position": 250,
             "mandatory": false
         },
         {
             "name": "FILLER",
             "format": "A",
             "size": 67,
-            "position": 250,
+            "position": 254,
             "mandatory": false
         }
     ],
@@ -293,12 +314,12 @@
             "format": "A",
             "size": 50,
             "position": 98,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "BAIRRO",
             "format": "A",
-            "size": 30,
+            "size": 35,
             "position": 148,
             "mandatory": false
         },
@@ -306,42 +327,49 @@
             "name": "CIDADE (MUNICÍPIO)",
             "format": "A",
             "size": 35,
-            "position": 178,
-            "mandatory": true
+            "position": 183,
+            "mandatory": false
         },
         {
             "name": "CÓDIGO POSTAL",
-            "format": "N",
+            "format": "A",
             "size": 9,
-            "position": 213,
+            "position": 218,
             "mandatory": true
         },
         {
             "name": "CÓDIGO DE MUNICÍPIO",
             "format": "A",
             "size": 9,
-            "position": 222,
+            "position": 227,
             "mandatory": false
         },
         {
-            "name": "SIGLA DO ESTADO (UF) SUBENTIDADE DE PAÍS",
+            "name": "SIGLA DO ESTADO (UF)",
             "format": "A",
-            "size": 3,
-            "position": 231,
+            "size": 9,
+            "position": 236,
             "mandatory": true
         },
         {
             "name": "NÚMERO DE COMUNICAÇÃO",
             "format": "A",
-            "size": 25,
-            "position": 234,
+            "size": 35,
+            "position": 245,
+            "mandatory": false
+        },
+        {
+            "name": "CÓDIGO DE PAÍS",
+            "format": "A",
+            "size": 4,
+            "position": 280,
             "mandatory": false
         },
         {
             "name": "ÁREA DE FRETE",
             "format": "A",
             "size": 4,
-            "position": 259,
+            "position": 284,
             "mandatory": false
         },
         {
@@ -386,14 +414,7 @@
             "format": "N",
             "size": 14,
             "position": 54,
-            "mandatory": false
-        },
-        {
-            "name": "INSCRIÇÃO ESTADUAL",
-            "format": "A",
-            "size": 15,
-            "position": 68,
-            "mandatory": false
+            "mandatory": true
         },
         {
             "name": "ENDEREÇO (LOGRADOURO)",
@@ -405,7 +426,7 @@
         {
             "name": "BAIRRO",
             "format": "A",
-            "size": 30,
+            "size": 35,
             "position": 133,
             "mandatory": false
         },
@@ -413,42 +434,49 @@
             "name": "CIDADE (MUNICÍPIO)",
             "format": "A",
             "size": 35,
-            "position": 163,
+            "position": 168,
             "mandatory": false
         },
         {
             "name": "CÓDIGO POSTAL",
-            "format": "N",
+            "format": "A",
             "size": 9,
-            "position": 198,
-            "mandatory": false
+            "position": 203,
+            "mandatory": true
         },
         {
             "name": "CÓDIGO DE MUNICÍPIO",
             "format": "A",
             "size": 9,
-            "position": 207,
+            "position": 212,
             "mandatory": false
         },
         {
-            "name": "SIGLA DO ESTADO (UF) SUBENTIDADE DE PAÍS",
+            "name": "SIGLA DO ESTADO (UF)",
             "format": "A",
-            "size": 3,
-            "position": 216,
+            "size": 9,
+            "position": 221,
             "mandatory": false
         },
         {
             "name": "NÚMERO DE COMUNICAÇÃO",
             "format": "A",
-            "size": 25,
-            "position": 219,
+            "size": 35,
+            "position": 230,
+            "mandatory": false
+        },
+        {
+            "name": "CÓDIGO DE PAÍS",
+            "format": "A",
+            "size": 4,
+            "position": 265,
             "mandatory": false
         },
         {
             "name": "ÁREA DE FRETE",
             "format": "A",
             "size": 4,
-            "position": 244,
+            "position": 269,
             "mandatory": false
         },
         {
@@ -486,12 +514,12 @@
             "format": "A",
             "size": 3,
             "position": 4,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "NÚMERO DA NOTA FISCAL",
             "format": "N",
-            "size": 8,
+            "size": 9,
             "position": 7,
             "mandatory": true
         },
@@ -499,64 +527,64 @@
             "name": "DATA DE EMISSÃO",
             "format": "N",
             "size": 8,
-            "position": 15,
+            "position": 16,
             "mandatory": true
         },
         {
             "name": "NATUREZA (TIPO) DA MERCADORIA",
             "format": "A",
             "size": 15,
-            "position": 23,
+            "position": 24,
             "mandatory": true
         },
         {
             "name": "ESPÉCIE DE ACONDICIONAMENTO",
             "format": "A",
             "size": 15,
-            "position": 38,
+            "position": 39,
             "mandatory": true
         },
         {
             "name": "CÓDIGO DA ROTA",
             "format": "A",
             "size": 7,
-            "position": 53,
+            "position": 54,
             "mandatory": false
         },
         {
             "name": "MEIO DE TRANSPORTE",
             "format": "N",
             "size": 1,
-            "position": 60,
-            "mandatory": true
+            "position": 61,
+            "mandatory": false
         },
         {
             "name": "TIPO DO TRANSPORTE DA CARGA",
             "format": "N",
             "size": 1,
-            "position": 61,
-            "mandatory": true
+            "position": 62,
+            "mandatory": false
         },
         {
             "name": "TIPO DE CARGA",
             "format": "N",
             "size": 1,
-            "position": 62,
-            "mandatory": true
+            "position": 63,
+            "mandatory": false
         },
         {
             "name": "CONDIÇÃO DE FRETE",
             "format": "A",
             "size": 1,
-            "position": 63,
+            "position": 64,
             "mandatory": true
         },
         {
             "name": "DATA DO EMBARQUE DAS MERCADORIAS",
             "format": "N",
             "size": 8,
-            "position": 64,
-            "mandatory": true
+            "position": 65,
+            "mandatory": false
         },
         {
             "name": "DESDOBRO",
@@ -577,7 +605,7 @@
             "format": "N",
             "size": 1,
             "position": 84,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "INDICAÇÃO DE BONIFICAÇÃO (S/N)",
@@ -591,7 +619,7 @@
             "format": "N",
             "size": 4,
             "position": 86,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "SIGLA DO ESTADO (UF) DO FATO GERADOR",
@@ -619,7 +647,7 @@
             "format": "A",
             "size": 2,
             "position": 103,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "IDENTIFICAÇÃO DO PEDIDO DO CLIENTE",
@@ -629,31 +657,38 @@
             "mandatory": false
         },
         {
-            "name": "NÚMERO ROMANEIO, ORDEM DE COLETA, RESUMO DE CARGA, ETC.",
+            "name": "NUMERO ROMANEIO, ORDEM DE COLETA, RESUMO DE CARGA, ETC.",
             "format": "A",
             "size": 20,
             "position": 125,
             "mandatory": false
         },
         {
-            "name": "NÚMERO SAP, SHIPMENT, ETC. (Identificação de Embarque, Carga, etc.) - #1",
+            "name": "NÚMERO SAP, SHIPMENT, ETC.",
             "format": "A",
             "size": 20,
             "position": 145,
             "mandatory": false
         },
         {
-            "name": "OUTRO NÚMERO SAP, ACCOUNT, ETC. (Identificação de Embarque, Carga, etc.) - #2",
+            "name": "OUTRO NÚMERO SAP, ACCOUNT, ETC. (#1)",
             "format": "A",
             "size": 20,
             "position": 165,
             "mandatory": false
         },
         {
-            "name": "OUTRO NÚMERO SAP, ACCOUNT, ETC. (Identificação de Embarque, Carga, etc.) - #3",
+            "name": "OUTRO NÚMERO SAP, ACCOUNT, ETC. (#2)",
             "format": "A",
             "size": 20,
             "position": 185,
+            "mandatory": false
+        },
+        {
+            "name": "OUTRO NÚMERO SAP, ACCOUNT, ETC. (#3)",
+            "format": "A",
+            "size": 20,
+            "position": 205,
             "mandatory": false
         },
         {
@@ -696,14 +731,14 @@
             "format": "N",
             "size": 9,
             "position": 230,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "CHAVE DE ACESSO DA NF-e COM D/V",
-            "format": "N",
-            "size": 44,
+            "format": "A",
+            "size": 45,
             "position": 239,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "NÚMERO DO PROTOCOLO DA NF-e",
@@ -736,136 +771,185 @@
             "mandatory": true
         },
         {
-            "name": "PESO BRUTO TOTAL DA MERCADORIA/NOTA",
+            "name": "QTDE TOTAL DE VOLUMES/EMBALAGENS",
             "format": "N",
             "size": 6,
             "position": 4,
             "mandatory": true
         },
         {
-            "name": "PESO LÍQUIDO TOTAL DA MERCADORIA",
+            "name": "PESO BRUTO TOTAL DA MERCADORIA/NOTA",
             "format": "N",
             "size": 6,
-            "position": 10,
+            "position": 12,
             "mandatory": true
+        },
+        {
+            "name": "PESO LÍQUIDO TOTAL DA MERCADORIA/NOTA",
+            "format": "N",
+            "size": 6,
+            "position": 21,
+            "mandatory": false
+        },
+        {
+            "name": "PESO DENSIDADE/CUBAGEM",
+            "format": "N",
+            "size": 6,
+            "position": 30,
+            "mandatory": false
         },
         {
             "name": "PESO CUBADO (VOLUME X DENSIDADE)",
             "format": "N",
             "size": 6,
-            "position": 16,
+            "position": 40,
             "mandatory": false
         },
         {
-            "name": "VOLUME DA MERCADORIA",
-            "format": "N",
-            "size": 6,
-            "position": 22,
-            "mandatory": false
-        },
-        {
-            "name": "VALOR TOTAL BRUTO DA NOTA",
-            "format": "N",
-            "size": 13,
-            "position": 28,
+            "name": "INCIDÊNCIA DE ICMS (S/N)?",
+            "format": "A",
+            "size": 1,
+            "position": 50,
             "mandatory": true
         },
         {
-            "name": "VALOR DO SEGURO",
+            "name": "SEGURO JÁ EFETUADO (S/N)?",
+            "format": "A",
+            "size": 1,
+            "position": 51,
+            "mandatory": true
+        },
+        {
+            "name": "VALOR A SER COBRADO DO CLIENTE",
             "format": "N",
             "size": 13,
-            "position": 41,
+            "position": 52,
             "mandatory": false
         },
         {
-            "name": "VALOR DO DESCONTO",
-            "format": "N",
-            "size": 13,
-            "position": 54,
-            "mandatory": false
-        },
-        {
-            "name": "VALOR DE OUTRAS DESPESAS ACESSÓRIAS",
+            "name": "VALOR TOTAL DA NOTA",
             "format": "N",
             "size": 13,
             "position": 67,
+            "mandatory": true
+        },
+        {
+            "name": "VALOR TOTAL DO SEGURO",
+            "format": "N",
+            "size": 13,
+            "position": 82,
+            "mandatory": false
+        },
+        {
+            "name": "VALOR TOTAL DO DESCONTO",
+            "format": "N",
+            "size": 13,
+            "position": 97,
+            "mandatory": false
+        },
+        {
+            "name": "VALOR TOTAL OUTRAS DESPESAS ACESSÓRIAS",
+            "format": "N",
+            "size": 13,
+            "position": 112,
+            "mandatory": false
+        },
+        {
+            "name": "BASE DE CÁLCULO DO ICMS",
+            "format": "N",
+            "size": 13,
+            "position": 127,
             "mandatory": false
         },
         {
             "name": "VALOR TOTAL DO ICMS",
             "format": "N",
             "size": 13,
-            "position": 80,
+            "position": 142,
             "mandatory": false
         },
         {
-            "name": "VALOR TOTAL ICMS ST/SUBS. TRIBUTÁRIA",
+            "name": "BASE DE CÁLCULO DO ICMS SUBST. TRIBUTÁRIA",
             "format": "N",
             "size": 13,
-            "position": 93,
+            "position": 157,
             "mandatory": false
         },
         {
-            "name": "VALOR TOTAL IPI",
+            "name": "VALOR TOTAL DO ICMS SUBST. TRIBUTÁRIA",
             "format": "N",
             "size": 13,
-            "position": 106,
+            "position": 172,
+            "mandatory": false
+        },
+        {
+            "name": "VALOR DO ICMS RETIDO",
+            "format": "N",
+            "size": 13,
+            "position": 187,
             "mandatory": false
         },
         {
             "name": "VALOR TOTAL DO IMPOSTO DE IMPORTAÇÃO",
             "format": "N",
             "size": 13,
-            "position": 119,
+            "position": 202,
             "mandatory": false
         },
         {
-            "name": "VALOR TOTAL DO ICMS FRETE",
+            "name": "VALOR TOTAL DO IPI",
             "format": "N",
             "size": 13,
-            "position": 132,
+            "position": 217,
             "mandatory": false
         },
         {
             "name": "VALOR TOTAL DO PIS",
             "format": "N",
             "size": 13,
-            "position": 145,
+            "position": 232,
             "mandatory": false
         },
         {
             "name": "VALOR TOTAL DO COFINS",
             "format": "N",
             "size": 13,
-            "position": 158,
+            "position": 247,
             "mandatory": false
         },
         {
-            "name": "VALOR TOTAL DO ISS",
+            "name": "VALOR CALCULADO DO FRETE",
             "format": "N",
             "size": 13,
-            "position": 171,
+            "position": 262,
             "mandatory": false
         },
         {
-            "name": "VALOR TOTAL DO ICMS ST/SUBS. TRIBUTÁRIA DO FRETE",
+            "name": "VALOR TOTAL DO ICMS DO FRETE",
             "format": "N",
-            "size": 13,
-            "position": 184,
+            "size": 11,
+            "position": 277,
+            "mandatory": false
+        },
+        {
+            "name": "VALOR TOTAL ICMS-SUBST. TRIBUTÁRIA DO FRETE",
+            "format": "N",
+            "size": 11,
+            "position": 290,
             "mandatory": false
         },
         {
             "name": "VALOR TOTAL DO ISS DO FRETE",
             "format": "N",
-            "size": 13,
-            "position": 197,
+            "size": 11,
+            "position": 303,
             "mandatory": false
         },
         {
             "name": "FILLER",
             "format": "A",
-            "size": 31,
-            "position": 210,
+            "size": 5,
+            "position": 316,
             "mandatory": false
         }
     ],
@@ -882,139 +966,181 @@
             "format": "N",
             "size": 6,
             "position": 4,
-            "mandatory": false
+            "mandatory": true
         },
         {
             "name": "PESO TOTAL TRANSPORTADO (PESO BRUTO)",
             "format": "N",
             "size": 6,
-            "position": 10,
-            "mandatory": false
+            "position": 12,
+            "mandatory": true
         },
         {
             "name": "PESO TOTAL CUBADO (VOLUME X DENSIDADE)",
             "format": "N",
             "size": 6,
-            "position": 16,
+            "position": 21,
             "mandatory": false
         },
         {
             "name": "PESO DENSIDADE/CUBAGEM",
             "format": "N",
             "size": 6,
-            "position": 22,
+            "position": 31,
             "mandatory": false
         },
         {
             "name": "VALOR TOTAL DO FRETE",
             "format": "N",
             "size": 13,
-            "position": 28,
+            "position": 41,
             "mandatory": true
         },
         {
             "name": "VALOR DO FRETE POR PESO/VOLUME",
             "format": "N",
             "size": 13,
-            "position": 41,
+            "position": 56,
             "mandatory": false
         },
         {
             "name": "FRETE VALOR",
             "format": "N",
             "size": 13,
-            "position": 54,
+            "position": 71,
             "mandatory": false
         },
         {
-            "name": "VALOR AD VALOREM",
+            "name": "FRETE AD VALOREM",
             "format": "N",
             "size": 13,
-            "position": 67,
+            "position": 86,
             "mandatory": false
         },
         {
-            "name": "VALOR SRC - CAT",
+            "name": "VALOR SEC – CAT",
             "format": "N",
             "size": 13,
-            "position": 80,
+            "position": 101,
+            "mandatory": false
+        },
+        {
+            "name": "VALOR ITR/GRIS",
+            "format": "N",
+            "size": 13,
+            "position": 116,
+            "mandatory": false
+        },
+        {
+            "name": "VALOR DO DESPACHO",
+            "format": "N",
+            "size": 13,
+            "position": 131,
             "mandatory": false
         },
         {
             "name": "VALOR DO PEDÁGIO",
             "format": "N",
             "size": 13,
-            "position": 93,
+            "position": 146,
+            "mandatory": false
+        },
+        {
+            "name": "VALOR ADEME/GRIS",
+            "format": "N",
+            "size": 13,
+            "position": 161,
             "mandatory": false
         },
         {
             "name": "VALOR TOTAL DE DESPESAS EXTRAS/ADICIONAIS",
             "format": "N",
             "size": 13,
-            "position": 106,
+            "position": 176,
             "mandatory": false
         },
         {
             "name": "BASE DE CÁLCULO PARA APURAÇÃO ICMS DO FRETE",
             "format": "N",
             "size": 13,
-            "position": 119,
+            "position": 191,
+            "mandatory": false
+        },
+        {
+            "name": "% DE TAXA DO ICMS DO FRETE",
+            "format": "N",
+            "size": 3,
+            "position": 206,
             "mandatory": false
         },
         {
             "name": "VALOR DO ICMS DO FRETE",
             "format": "N",
             "size": 13,
-            "position": 132,
+            "position": 211,
             "mandatory": false
         },
         {
             "name": "SUBSTITUIÇÃO TRIBUTÁRIA?",
             "format": "N",
             "size": 1,
-            "position": 145,
+            "position": 226,
+            "mandatory": true
+        },
+        {
+            "name": "BASE DE CÁLCULO ICMS – SUBSTITUIÇÃO TRIBUTÁRIA",
+            "format": "N",
+            "size": 13,
+            "position": 227,
             "mandatory": false
         },
         {
-            "name": "BASE DE CÁLCULO ICMS - SUBSTITUIÇÃO TRIBUTÁRIA",
+            "name": "% DE TAXA DO ICMS – SUBSTITUIÇÃO TRIBUTÁRIA",
             "format": "N",
-            "size": 13,
-            "position": 146,
+            "size": 3,
+            "position": 242,
             "mandatory": false
         },
         {
-            "name": "VALOR TOTAL DO ICMS - SUBSTITUIÇÃO TRIBUTÁRIA",
+            "name": "VALOR TOTAL DO ICMS – SUBSTITUIÇÃO TRIBUTÁRIA",
             "format": "N",
             "size": 13,
-            "position": 159,
+            "position": 247,
             "mandatory": false
         },
         {
-            "name": "BASE DE CÁLCULO DO ISS",
+            "name": "BASE DE CALCULO DO ISS",
             "format": "N",
             "size": 13,
-            "position": 172,
+            "position": 262,
+            "mandatory": false
+        },
+        {
+            "name": "% DE TAXA DO ISS",
+            "format": "N",
+            "size": 3,
+            "position": 277,
             "mandatory": false
         },
         {
             "name": "VALOR TOTAL DO ISS",
             "format": "N",
             "size": 13,
-            "position": 185,
+            "position": 282,
             "mandatory": false
         },
         {
-            "name": "VALOR DO IMPOSTO DE RENDA",
+            "name": "VALOR TOTAL DO IR",
             "format": "N",
             "size": 13,
-            "position": 198,
+            "position": 297,
             "mandatory": false
         },
         {
             "name": "DIREITO FISCAL",
             "format": "A",
             "size": 3,
-            "position": 211,
+            "position": 312,
             "mandatory": false
         },
         {
@@ -1022,7 +1148,7 @@
             "format": "A",
             "size": 4,
             "position": 314,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "SIGLA DO ESTADO (UF) DO FATO GERADOR ICMS FRETE",
@@ -1064,7 +1190,7 @@
         {
             "name": "NÚMERO DOS LACRES",
             "format": "A",
-            "size": 15,
+            "size": 50,
             "position": 104,
             "mandatory": false
         },
@@ -1092,14 +1218,14 @@
             "mandatory": false
         },
         {
-            "name": "NOME DO EMISSOR DA NOTA (RAZÃO SOCIAL) - 1",
+            "name": "NOME DO EMISSOR DA NOTA (RAZÃO SOCIAL) – 1",
             "format": "A",
             "size": 50,
             "position": 18,
             "mandatory": false
         },
         {
-            "name": "SÉRIE DA NOTA FISCAL - 1",
+            "name": "SÉRIE DA NOTA FISCAL – 1",
             "format": "A",
             "size": 3,
             "position": 68,
@@ -1108,92 +1234,92 @@
         {
             "name": "NÚMERO DA NOTA FISCAL - 1",
             "format": "N",
-            "size": 8,
+            "size": 9,
             "position": 71,
             "mandatory": false
         },
         {
-            "name": "ENTREGA CASADA: CNPJ/CGC DO EMISSOR DA NOTA - 2",
+            "name": "ENTREGA CASADA: CNPJ/CGC DO EMISSOR DA NOTA – 2",
             "format": "N",
             "size": 14,
-            "position": 79,
+            "position": 80,
             "mandatory": false
         },
         {
-            "name": "NOME DO EMISSOR DA NOTA (RAZÃO SOCIAL) - 2",
+            "name": "NOME DO EMISSOR DA NOTA (RAZÃO SOCIAL) – 2",
             "format": "A",
             "size": 50,
-            "position": 93,
+            "position": 94,
             "mandatory": false
         },
         {
-            "name": "SÉRIE DA NOTA FISCAL - 2",
+            "name": "SÉRIE DA NOTA FISCAL – 2",
             "format": "A",
             "size": 3,
-            "position": 143,
+            "position": 144,
             "mandatory": false
         },
         {
             "name": "NÚMERO DA NOTA FISCAL - 2",
             "format": "N",
-            "size": 8,
-            "position": 146,
+            "size": 9,
+            "position": 147,
             "mandatory": false
         },
         {
-            "name": "ENTREGA CASADA: CNPJ/CGC DO EMISSOR DA NOTA - 3",
+            "name": "ENTREGA CASADA: CNPJ/CGC DO EMISSOR DA NOTA – 3",
             "format": "N",
             "size": 14,
-            "position": 154,
+            "position": 156,
             "mandatory": false
         },
         {
-            "name": "NOME DO EMISSOR DA NOTA (RAZÃO SOCIAL) - 3",
+            "name": "NOME DO EMISSOR DA NOTA (RAZÃO SOCIAL) – 3",
             "format": "A",
             "size": 50,
-            "position": 168,
+            "position": 170,
             "mandatory": false
         },
         {
-            "name": "SÉRIE DA NOTA FISCAL - 3",
+            "name": "SÉRIE DA NOTA FISCAL – 3",
             "format": "A",
             "size": 3,
-            "position": 218,
+            "position": 220,
             "mandatory": false
         },
         {
             "name": "NÚMERO DA NOTA FISCAL - 3",
             "format": "N",
-            "size": 8,
-            "position": 221,
+            "size": 9,
+            "position": 223,
             "mandatory": false
         },
         {
             "name": "REDESPACHO: FILIAL EMISSORA CONHECIMENTO",
             "format": "A",
             "size": 10,
-            "position": 229,
+            "position": 232,
             "mandatory": false
         },
         {
             "name": "REDESPACHO: SÉRIE CONHECIMENTO",
             "format": "A",
-            "size": 3,
-            "position": 239,
+            "size": 5,
+            "position": 242,
             "mandatory": false
         },
         {
             "name": "REDESPACHO: NÚMERO DO CONHECIMENTO",
-            "format": "N",
-            "size": 10,
-            "position": 242,
+            "format": "A",
+            "size": 12,
+            "position": 247,
             "mandatory": false
         },
         {
             "name": "REDESPACHO: CNPJ/CGC DA TRANSP. CONTRATANTE",
             "format": "N",
             "size": 14,
-            "position": 252,
+            "position": 259,
             "mandatory": false
         },
         {
@@ -1223,77 +1349,77 @@
             "name": "ESPÉCIE DE ACONDICIONAMENTO DO ITEM",
             "format": "A",
             "size": 15,
-            "position": 10,
+            "position": 12,
             "mandatory": true
         },
         {
             "name": "CÓDIGO DO ITEM DA NOTA FISCAL",
             "format": "A",
             "size": 20,
-            "position": 25,
-            "mandatory": false
+            "position": 27,
+            "mandatory": true
         },
         {
             "name": "DESCRIÇÃO DO ITEM DA NOTA FISCAL",
             "format": "A",
             "size": 50,
-            "position": 45,
+            "position": 47,
             "mandatory": true
         },
         {
             "name": "CFOP DO ITEM",
             "format": "N",
             "size": 4,
-            "position": 95,
-            "mandatory": true
+            "position": 97,
+            "mandatory": false
         },
         {
-            "name": "NCM DO ITEM",
+            "name": "LOTE DO ITEM",
+            "format": "N",
+            "size": 20,
+            "position": 101,
+            "mandatory": false
+        },
+        {
+            "name": "DATA DE VALIDADE DO ITEM",
             "format": "N",
             "size": 8,
-            "position": 99,
-            "mandatory": true
-        },
-        {
-            "name": "MARCA DE VALIDADE DO ITEM",
-            "format": "N",
-            "size": 6,
-            "position": 107,
+            "position": 121,
             "mandatory": false
         },
         {
             "name": "MARCA DOS VOLUMES TRANSPORTADOS",
             "format": "A",
             "size": 50,
-            "position": 113,
+            "position": 129,
             "mandatory": false
         },
         {
             "name": "NUMERAÇÃO DOS VOLUMES TRANSPORTADOS",
             "format": "A",
             "size": 50,
-            "position": 163,
+            "position": 179,
             "mandatory": false
         },
         {
             "name": "NÚMERO DOS LACRES",
             "format": "A",
-            "size": 15,
-            "position": 213,
+            "size": 50,
+            "position": 229,
             "mandatory": false
         },
         {
             "name": "IDENTIFICAÇÃO DO PEDIDO DO CLIENTE",
             "format": "A",
-            "size": 22,
-            "position": 229,
+            "size": 20,
+            "position": 279,
             "mandatory": false
         },
         {
             "name": "FILLER",
             "format": "A",
             "size": 22,
-            "position": 251,
+            "position": 299,
             "mandatory": false
         }
     ],
@@ -1324,19 +1450,19 @@
             "format": "A",
             "size": 15,
             "position": 68,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "ENDEREÇO (LOGRADOURO)",
             "format": "A",
             "size": 50,
             "position": 83,
-            "mandatory": false
+            "mandatory": true
         },
         {
             "name": "BAIRRO",
             "format": "A",
-            "size": 30,
+            "size": 35,
             "position": 133,
             "mandatory": false
         },
@@ -1344,42 +1470,42 @@
             "name": "CIDADE (MUNICÍPIO)",
             "format": "A",
             "size": 35,
-            "position": 163,
+            "position": 168,
             "mandatory": true
         },
         {
             "name": "CÓDIGO POSTAL",
-            "format": "N",
+            "format": "A",
             "size": 9,
-            "position": 198,
-            "mandatory": false
+            "position": 203,
+            "mandatory": true
         },
         {
             "name": "CÓDIGO DE MUNICÍPIO",
             "format": "A",
             "size": 9,
-            "position": 207,
+            "position": 212,
             "mandatory": false
         },
         {
-            "name": "SIGLA DO ESTADO (UF) SUBENTIDADE DE PAÍS",
+            "name": "SIGLA DO ESTADO (UF)",
             "format": "A",
-            "size": 3,
-            "position": 216,
-            "mandatory": false
+            "size": 9,
+            "position": 221,
+            "mandatory": true
         },
         {
             "name": "NÚMERO DE COMUNICAÇÃO",
             "format": "A",
-            "size": 25,
-            "position": 219,
+            "size": 35,
+            "position": 230,
             "mandatory": false
         },
         {
             "name": "FILLER",
             "format": "A",
             "size": 56,
-            "position": 244,
+            "position": 265,
             "mandatory": false
         }
     ],
@@ -1410,19 +1536,19 @@
             "format": "A",
             "size": 15,
             "position": 68,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "ENDEREÇO (LOGRADOURO)",
             "format": "A",
             "size": 50,
             "position": 83,
-            "mandatory": false
+            "mandatory": true
         },
         {
             "name": "BAIRRO",
             "format": "A",
-            "size": 30,
+            "size": 35,
             "position": 133,
             "mandatory": false
         },
@@ -1430,42 +1556,42 @@
             "name": "CIDADE (MUNICÍPIO)",
             "format": "A",
             "size": 35,
-            "position": 163,
+            "position": 168,
             "mandatory": true
         },
         {
             "name": "CÓDIGO POSTAL",
-            "format": "N",
+            "format": "A",
             "size": 9,
-            "position": 198,
-            "mandatory": false
+            "position": 203,
+            "mandatory": true
         },
         {
             "name": "CÓDIGO DE MUNICÍPIO",
             "format": "A",
             "size": 9,
-            "position": 207,
+            "position": 212,
             "mandatory": false
         },
         {
-            "name": "SIGLA DO ESTADO (UF) SUBENTIDADE DE PAÍS",
+            "name": "SIGLA DO ESTADO (UF)",
             "format": "A",
-            "size": 3,
-            "position": 216,
-            "mandatory": false
+            "size": 9,
+            "position": 221,
+            "mandatory": true
         },
         {
             "name": "NÚMERO DE COMUNICAÇÃO",
             "format": "A",
-            "size": 25,
-            "position": 219,
+            "size": 35,
+            "position": 230,
             "mandatory": false
         },
         {
             "name": "ÁREA DE FRETE",
             "format": "A",
             "size": 4,
-            "position": 244,
+            "position": 265,
             "mandatory": false
         },
         {
@@ -1503,19 +1629,19 @@
             "format": "A",
             "size": 15,
             "position": 68,
-            "mandatory": true
+            "mandatory": false
         },
         {
             "name": "ENDEREÇO (LOGRADOURO)",
             "format": "A",
             "size": 50,
             "position": 83,
-            "mandatory": false
+            "mandatory": true
         },
         {
             "name": "BAIRRO",
             "format": "A",
-            "size": 30,
+            "size": 35,
             "position": 133,
             "mandatory": false
         },
@@ -1523,42 +1649,42 @@
             "name": "CIDADE (MUNICÍPIO)",
             "format": "A",
             "size": 35,
-            "position": 163,
+            "position": 168,
             "mandatory": true
         },
         {
             "name": "CÓDIGO POSTAL",
-            "format": "N",
+            "format": "A",
             "size": 9,
-            "position": 198,
-            "mandatory": false
+            "position": 203,
+            "mandatory": true
         },
         {
             "name": "CÓDIGO DE MUNICÍPIO",
             "format": "A",
             "size": 9,
-            "position": 207,
+            "position": 212,
             "mandatory": false
         },
         {
-            "name": "SIGLA DO ESTADO (UF) SUBENTIDADE DE PAÍS",
+            "name": "SIGLA DO ESTADO (UF)",
             "format": "A",
-            "size": 3,
-            "position": 216,
-            "mandatory": false
+            "size": 9,
+            "position": 221,
+            "mandatory": true
         },
         {
             "name": "NÚMERO DE COMUNICAÇÃO",
             "format": "A",
-            "size": 25,
-            "position": 219,
+            "size": 35,
+            "position": 230,
             "mandatory": false
         },
         {
             "name": "FILLER",
             "format": "A",
             "size": 56,
-            "position": 244,
+            "position": 265,
             "mandatory": false
         }
     ],
@@ -1587,22 +1713,22 @@
         {
             "name": "QUANTIDADE TOTAL DE VOLUMES",
             "format": "N",
-            "size": 9,
+            "size": 13,
             "position": 34,
             "mandatory": true
         },
         {
             "name": "NÚMERO DE NOTAS",
             "format": "N",
-            "size": 6,
-            "position": 43,
-            "mandatory": true
+            "size": 10,
+            "position": 49,
+            "mandatory": false
         },
         {
             "name": "FILLER",
             "format": "A",
             "size": 262,
-            "position": 49,
+            "position": 59,
             "mandatory": false
         }
     ]
