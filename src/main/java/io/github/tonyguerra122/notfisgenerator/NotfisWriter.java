@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -63,75 +62,77 @@ public final class NotfisWriter {
                 throw new NotfisException("Identificador de registro não encontrado na configuração: " + identifier);
             }
 
-            final Map<String, Boolean> fieldMandatory = new HashMap<>();
-            final List<NotfisField> populatedFields = new ArrayList<>();
+            for (int i = 0; i < jsonLines.length(); i++) {
+                JSONArray innerArray = jsonLines.getJSONArray(i);
 
-            for (JSONObject configObj : configLines) {
-                final String name = configObj.optString("name");
-                final NotfisFieldType format = configObj.optString("format", "A").equals("A")
-                        ? NotfisFieldType.ALPHANUMERIC
-                        : NotfisFieldType.NUMERIC;
-                final short position = (short) configObj.optInt("position");
-                final short size = (short) configObj.optInt("size");
-                final boolean mandatory = configObj.optBoolean("mandatory");
+                final Map<String, Boolean> fieldMandatory = new HashMap<>();
+                final List<NotfisField> populatedFields = new ArrayList<>();
 
-                JSONObject matchingParam = null;
-                for (int j = 0; j < jsonLines.length(); j++) {
-                    final JSONObject param = jsonLines.getJSONObject(j);
-                    if (name.equals(param.optString("name"))) {
-                        matchingParam = param;
-                        break;
-                    }
-                }
+                for (JSONObject configObj : configLines) {
+                    final String name = configObj.optString("name");
+                    final NotfisFieldType format = configObj.optString("format", "A").equals("A")
+                            ? NotfisFieldType.ALPHANUMERIC
+                            : NotfisFieldType.NUMERIC;
+                    final short position = Short.parseShort(configObj.optString("position"));
+                    final short size = Short.parseShort(configObj.optString("size"));
+                    final boolean mandatory = configObj.optBoolean("mandatory");
 
-                if (matchingParam != null) {
-                    final Object value = matchingParam.opt("value");
-                    if (value == null) {
-                        throw new NotfisException(
-                                "Valor nulo encontrado no campo '" + name + "' no identificador " + identifier);
-                    }
-                    final NotfisField field = new NotfisField(name, format, position, size, mandatory, value);
-                    populatedFields.add(field);
-                } else if (mandatory) {
-                    throw new NotfisException(
-                            "Campo obrigatório '" + name + "' não encontrado no identificador " + identifier);
-                }
-
-                fieldMandatory.put(name, mandatory);
-            }
-
-            final String errorMessage = fieldMandatory.entrySet().stream()
-                    .filter(Map.Entry::getValue)
-                    .filter(fields -> {
-                        for (int j = 0; j < jsonLines.length(); j++) {
-                            JSONObject param = jsonLines.getJSONObject(j);
-                            if (fields.getKey().equals(param.optString("name"))) {
-                                return false;
-                            }
+                    JSONObject matchingParam = null;
+                    for (int j = 0; j < innerArray.length(); j++) {
+                        final JSONObject param = innerArray.getJSONObject(j);
+                        if (name.equals(param.optString("name"))) {
+                            matchingParam = param;
+                            break;
                         }
-                        return true;
-                    })
-                    .map(Map.Entry::getKey)
-                    .collect(Collectors.joining(", "));
+                    }
 
-            if (!errorMessage.isEmpty()) {
-                throw new NotfisException("Os seguintes campos obrigatórios estão ausentes no identificador "
-                        + identifier + ": " + errorMessage);
+                    if (matchingParam != null) {
+                        final Object value = matchingParam.opt("value");
+                        if (value == null) {
+                            throw new NotfisException(
+                                    "Valor nulo encontrado no campo '" + name + "' no identificador " + identifier);
+                        }
+                        final NotfisField field = new NotfisField(name, format, position, size, mandatory, value);
+                        populatedFields.add(field);
+                    } else if (mandatory) {
+                        throw new NotfisException(
+                                "Campo obrigatório '" + name + "' não encontrado no identificador " + identifier);
+                    }
+
+                    fieldMandatory.put(name, mandatory);
+                }
+
+
+                populatedLines.add(populatedFields);
             }
-
-            populatedLines.add(populatedFields);
         }
 
         lines.clear();
         lines.addAll(populatedLines);
     }
 
+    /**
+     * Insira o JSON e o caminho do arquivo de saída
+     * 
+     * @param json
+     * @param filename
+     * @return
+     * @throws NotfisException
+     */
     public File writeFile(JSONObject json, String filename) throws NotfisException {
         checkAllFields(json);
         final File outputFile = new File(filename);
 
         try (var writer = new java.io.FileWriter(outputFile)) {
-            for (final List<NotfisField> line : lines) { // Linha 137
+            if (lines.isEmpty()) {
+                throw new NotfisException("Nenhuma linha foi gerada para escrever no arquivo.");
+            }
+
+            for (final List<NotfisField> line : lines) {
+                if (line.isEmpty()) {
+                    continue;
+                }
+
                 final int totalLength = line.stream()
                         .mapToInt(field -> field.getPosition() + field.getSize())
                         .max()
@@ -143,7 +144,6 @@ public final class NotfisWriter {
                 for (NotfisField field : line) {
                     String value = field.getValue().toString();
 
-                    // Trunca o valor se exceder o tamanho definido
                     if (value.length() > field.getSize()) {
                         value = value.substring(0, field.getSize());
                     }
@@ -166,6 +166,14 @@ public final class NotfisWriter {
         return outputFile;
     }
 
+    /**
+     * Insira o JSON e o caminho do arquivo de saída
+     * 
+     * @param json
+     * @param filename
+     * @return
+     * @throws NotfisException
+     */
     public File writeFile(String json, String filename) throws NotfisException {
         return writeFile(new JSONObject(json), filename);
     }
