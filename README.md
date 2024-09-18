@@ -43,6 +43,7 @@ O `JSON` especificado deve vir no seguinte formato:
 ```bash
 {
     "000": [
+      [
         
         {
           "name": "IDENTIFICADOR DE REGISTRO",
@@ -58,7 +59,8 @@ O `JSON` especificado deve vir no seguinte formato:
             "name": "IDENTIFICADOR DE REGISTRO",
             "value": "320"
         }
-        ...
+      ]
+      ...
     ]
 }
 ```
