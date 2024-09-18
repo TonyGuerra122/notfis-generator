@@ -1,7 +1,9 @@
 package io.github.tonyguerra122.notfisgenerator;
 
-import java.io.File;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -102,7 +104,6 @@ public final class NotfisWriter {
                     fieldMandatory.put(name, mandatory);
                 }
 
-
                 populatedLines.add(populatedFields);
             }
         }
@@ -112,25 +113,19 @@ public final class NotfisWriter {
     }
 
     /**
-     * Insira o JSON e o caminho do arquivo de saída
-     * 
+     * Insira o JSON e receba um InputStream do arquivo gerado em memória 
      * @param json
-     * @param filename
      * @return
      * @throws NotfisException
      */
-    public File writeFile(JSONObject json, String filename) throws NotfisException {
-        checkAllFields(json);
-        final File outputFile = new File(filename);
+    public InputStream writeFileToStream(JSONObject json) throws NotfisException {
+        checkAllFields(json); // Valida os campos e preenche a lista 'lines'
 
-        try (var writer = new java.io.FileWriter(outputFile)) {
-            if (lines.isEmpty()) {
-                throw new NotfisException("Nenhuma linha foi gerada para escrever no arquivo.");
-            }
-
+        try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
             for (final List<NotfisField> line : lines) {
                 if (line.isEmpty()) {
-                    continue;
+                    System.out.println("A linha está vazia.");
+                    continue; // Pula se a linha estiver vazia
                 }
 
                 final int totalLength = line.stream()
@@ -144,6 +139,7 @@ public final class NotfisWriter {
                 for (NotfisField field : line) {
                     String value = field.getValue().toString();
 
+                    // Trunca o valor se exceder o tamanho definido
                     if (value.length() > field.getSize()) {
                         value = value.substring(0, field.getSize());
                     }
@@ -156,25 +152,26 @@ public final class NotfisWriter {
                     }
                 }
 
-                writer.write(new String(lineChars));
-                writer.write("\n");
+                // Converte a linha em uma string e escreve no outputStream
+                outputStream.write(new String(lineChars).getBytes());
+                outputStream.write("\n".getBytes()); // Adiciona nova linha no stream
             }
-        } catch (Exception ex) {
-            throw new NotfisException("Erro ao escrever o arquivo: " + filename);
-        }
 
-        return outputFile;
+            // Converte o conteúdo do ByteArrayOutputStream em um InputStream
+            return new ByteArrayInputStream(outputStream.toByteArray());
+
+        } catch (Exception ex) {
+            throw new NotfisException("Erro ao gerar o InputStream.");
+        }
     }
 
     /**
-     * Insira o JSON e o caminho do arquivo de saída
-     * 
+     * Insira o JSON e receba um InputStream do arquivo gerado em memória 
      * @param json
-     * @param filename
      * @return
      * @throws NotfisException
      */
-    public File writeFile(String json, String filename) throws NotfisException {
-        return writeFile(new JSONObject(json), filename);
+    public InputStream writeFileToStream(String json) throws NotfisException {
+        return writeFileToStream(new JSONObject(json));
     }
 }

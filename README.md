@@ -33,7 +33,7 @@ Os **Dados de Entrada** tem que vir em um formato específico para que não haja
 O Método `writeFile` da classe `NotfisWriter` recebe um `JSONArray` como parametro e o nome do arquivo de saída:
 
 ```bash
-JSONArray jsonData = new JSONArray("[]");
+JSONArray jsonData = new JSONArray("{}");
 var notfisWriter = new NotfisWriter(NotfisType.VERSION31);
 
 File generatedEdiFile = notfisWrite.writeFile(jsonData, "notfis.txt");
