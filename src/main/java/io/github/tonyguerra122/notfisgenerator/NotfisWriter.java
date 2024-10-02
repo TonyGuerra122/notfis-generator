@@ -2,8 +2,8 @@ package io.github.tonyguerra122.notfisgenerator;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +18,7 @@ public final class NotfisWriter {
 
     private final NotfisType type;
     private JSONObject configFile;
-    private final List<List<NotfisField>> lines;
+    private List<NotfisLine> lines;
 
     public NotfisWriter(NotfisType type) {
         this.type = type;
@@ -54,7 +54,7 @@ public final class NotfisWriter {
             configLinesMap.put(key, JSONUtils.jsonArrayToListJsonObject(configFile.getJSONArray(key)));
         }
 
-        final List<List<NotfisField>> populatedLines = new ArrayList<>();
+        final List<NotfisLine> populatedLines = new ArrayList<>();
 
         for (String identifier : json.keySet()) {
             final JSONArray jsonLines = json.getJSONArray(identifier);
@@ -67,7 +67,6 @@ public final class NotfisWriter {
             for (int i = 0; i < jsonLines.length(); i++) {
                 JSONArray innerArray = jsonLines.getJSONArray(i);
 
-                final Map<String, Boolean> fieldMandatory = new HashMap<>();
                 final List<NotfisField> populatedFields = new ArrayList<>();
 
                 for (JSONObject configObj : configLines) {
@@ -100,11 +99,10 @@ public final class NotfisWriter {
                         throw new NotfisException(
                                 "Campo obrigatório '" + name + "' não encontrado no identificador " + identifier);
                     }
-
-                    fieldMandatory.put(name, mandatory);
                 }
 
-                populatedLines.add(populatedFields);
+                NotfisLine notfisLine = new NotfisLine(identifier, populatedFields);
+                populatedLines.add(notfisLine);
             }
         }
 
@@ -113,7 +111,8 @@ public final class NotfisWriter {
     }
 
     /**
-     * Insira o JSON e receba um InputStream do arquivo gerado em memória 
+     * Insira o JSON e receba um InputStream do arquivo gerado em memória
+     * 
      * @param json
      * @return
      * @throws NotfisException
@@ -121,14 +120,18 @@ public final class NotfisWriter {
     public InputStream writeFileToStream(JSONObject json) throws NotfisException {
         checkAllFields(json); // Valida os campos e preenche a lista 'lines'
 
+        lines = NotfisLine.orderLines(lines);
+
         try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
-            for (final List<NotfisField> line : lines) {
-                if (line.isEmpty()) {
+            for (final NotfisLine line : lines) {
+                List<NotfisField> fields = line.getField();
+
+                if (fields.isEmpty()) {
                     System.out.println("A linha está vazia.");
-                    continue; // Pula se a linha estiver vazia
+                    continue; 
                 }
 
-                final int totalLength = line.stream()
+                final int totalLength = fields.stream()
                         .mapToInt(field -> field.getPosition() + field.getSize())
                         .max()
                         .orElse(0);
@@ -136,7 +139,7 @@ public final class NotfisWriter {
                 final char[] lineChars = new char[totalLength];
                 java.util.Arrays.fill(lineChars, ' ');
 
-                for (NotfisField field : line) {
+                for (NotfisField field : fields) {
                     String value = field.getValue().toString();
 
                     // Trunca o valor se exceder o tamanho definido
@@ -166,7 +169,8 @@ public final class NotfisWriter {
     }
 
     /**
-     * Insira o JSON e receba um InputStream do arquivo gerado em memória 
+     * Insira o JSON e receba um InputStream do arquivo gerado em memória
+     * 
      * @param json
      * @return
      * @throws NotfisException
