@@ -88,11 +88,18 @@ public final class NotfisWriter {
                     }
 
                     if (matchingParam != null) {
-                        final Object value = matchingParam.opt("value");
+                        Object value = matchingParam.opt("value");
                         if (value == null) {
                             throw new NotfisException(
                                     "Valor nulo encontrado no campo '" + name + "' no identificador " + identifier);
                         }
+
+                        if (format.equals(NotfisFieldType.NUMERIC) && value instanceof Number) {
+                            value = Math.round(((Number) value).doubleValue());
+                        } else {
+                            value = value.toString().replaceAll("[^\\p{ASCII}]", "").replaceAll("[^a-zA-Z0-9\\s]", "");
+                        }
+
                         final NotfisField field = new NotfisField(name, format, position, size, mandatory, value);
                         populatedFields.add(field);
                     } else if (mandatory) {
@@ -101,7 +108,7 @@ public final class NotfisWriter {
                     }
                 }
 
-                NotfisLine notfisLine = new NotfisLine(identifier, populatedFields);
+                final NotfisLine notfisLine = new NotfisLine(identifier, populatedFields);
                 populatedLines.add(notfisLine);
             }
         }
@@ -118,7 +125,7 @@ public final class NotfisWriter {
      * @throws NotfisException
      */
     public InputStream writeFileToStream(JSONObject json) throws NotfisException {
-        checkAllFields(json); // Valida os campos e preenche a lista 'lines'
+        checkAllFields(json);
 
         lines = NotfisLine.orderLines(lines);
 
@@ -128,7 +135,7 @@ public final class NotfisWriter {
 
                 if (fields.isEmpty()) {
                     System.out.println("A linha está vazia.");
-                    continue; 
+                    continue;
                 }
 
                 final int totalLength = fields.stream()
@@ -160,7 +167,6 @@ public final class NotfisWriter {
                 outputStream.write("\n".getBytes()); // Adiciona nova linha no stream
             }
 
-            // Converte o conteúdo do ByteArrayOutputStream em um InputStream
             return new ByteArrayInputStream(outputStream.toByteArray());
 
         } catch (Exception ex) {
