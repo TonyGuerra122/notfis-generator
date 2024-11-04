@@ -147,12 +147,7 @@ public final class NotfisWriter {
                 java.util.Arrays.fill(lineChars, ' ');
 
                 for (NotfisField field : fields) {
-                    String value = field.getValue().toString();
-
-                    // Trunca o valor se exceder o tamanho definido
-                    if (value.length() > field.getSize()) {
-                        value = value.substring(0, field.getSize());
-                    }
+                    final String value = field.getValue().toString();
 
                     final int startPosition = field.getPosition() - 1;
                     final int endPosition = Math.min(startPosition + field.getSize(), totalLength);
