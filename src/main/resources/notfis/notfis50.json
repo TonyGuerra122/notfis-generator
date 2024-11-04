@@ -159,7 +159,7 @@
             {
                 "name": "SIGLA DO ESTADO (UF)",
                 "format": "A",
-                "size": 9,
+                "size": 2,
                 "position": 251,
                 "mandatory": false
             },
@@ -788,35 +788,35 @@
             {
                 "name": "QTDE TOTAL DE VOLUMES/EMBALAGENS",
                 "format": "N",
-                "size": 6,
+                "size": 8,
                 "position": 4,
                 "mandatory": true
             },
             {
                 "name": "PESO BRUTO TOTAL DA MERCADORIA/NOTA",
                 "format": "N",
-                "size": 6,
+                "size": 9,
                 "position": 12,
                 "mandatory": true
             },
             {
                 "name": "PESO LÍQUIDO TOTAL DA MERCADORIA/NOTA",
                 "format": "N",
-                "size": 6,
+                "size": 9,
                 "position": 21,
                 "mandatory": false
             },
             {
                 "name": "PESO DENSIDADE/CUBAGEM",
                 "format": "N",
-                "size": 6,
+                "size": 10,
                 "position": 30,
                 "mandatory": false
             },
             {
                 "name": "PESO CUBADO (VOLUME X DENSIDADE)",
                 "format": "N",
-                "size": 6,
+                "size": 10,
                 "position": 40,
                 "mandatory": false
             },
@@ -865,7 +865,7 @@
             {
                 "name": "VALOR TOTAL OUTRAS DESPESAS ACESSÓRIAS",
                 "format": "N",
-                "size": 13,
+                "size": 15,
                 "position": 112,
                 "mandatory": false
             },
@@ -942,7 +942,7 @@
             {
                 "name": "VALOR TOTAL DO ICMS DO FRETE",
                 "format": "N",
-                "size": 11,
+                "size": 13,
                 "position": 277,
                 "mandatory": false
             },
@@ -956,7 +956,7 @@
             {
                 "name": "VALOR TOTAL DO ISS DO FRETE",
                 "format": "N",
-                "size": 11,
+                "size": 13,
                 "position": 303,
                 "mandatory": false
             },
@@ -981,42 +981,42 @@
             {
                 "name": "QUANTIDADE TOTAL DE VOLUMES/EMBALAGENS",
                 "format": "N",
-                "size": 6,
+                "size": 8,
                 "position": 4,
                 "mandatory": true
             },
             {
                 "name": "PESO TOTAL TRANSPORTADO (PESO BRUTO)",
                 "format": "N",
-                "size": 6,
+                "size": 9,
                 "position": 12,
                 "mandatory": true
             },
             {
                 "name": "PESO TOTAL CUBADO (VOLUME X DENSIDADE)",
                 "format": "N",
-                "size": 6,
+                "size": 9,
                 "position": 21,
                 "mandatory": false
             },
             {
                 "name": "PESO DENSIDADE/CUBAGEM",
                 "format": "N",
-                "size": 6,
+                "size": 9,
                 "position": 31,
                 "mandatory": false
             },
             {
                 "name": "VALOR TOTAL DO FRETE",
                 "format": "N",
-                "size": 13,
+                "size": 15,
                 "position": 41,
                 "mandatory": true
             },
             {
                 "name": "VALOR DO FRETE POR PESO/VOLUME",
                 "format": "N",
-                "size": 13,
+                "size": 15,
                 "position": 56,
                 "mandatory": false
             },
@@ -1730,21 +1730,21 @@
             {
                 "name": "VALOR TOTAL DAS NOTAS FISCAIS",
                 "format": "N",
-                "size": 13,
+                "size": 15,
                 "position": 4,
                 "mandatory": true
             },
             {
                 "name": "PESO BRUTO TOTAL DAS NOTAS FISCAIS",
                 "format": "N",
-                "size": 13,
+                "size": 15,
                 "position": 19,
                 "mandatory": true
             },
             {
                 "name": "QUANTIDADE TOTAL DE VOLUMES",
                 "format": "N",
-                "size": 13,
+                "size": 15,
                 "position": 34,
                 "mandatory": true
             },
