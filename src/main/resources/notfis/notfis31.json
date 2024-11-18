@@ -366,6 +366,27 @@
                 "size": 5,
                 "position": 108,
                 "mandatory": false
+            },
+            {
+                "name": "TIPO DE ICMS",
+                "format": "A",
+                "size": 1,
+                "position": 113,
+                "mandatory": true
+            }, 
+            {
+                "name": "VALOR A SER COBRADO",
+                "format": "N",
+                "size": 15,
+                "position": 130,
+                "mandatory": false
+            },
+            {
+                "name": "VALOR TOTAL DO FRETE",
+                "format": "N",
+                "size": 15,
+                "position": 198,
+                "mandatory": false
             }
         ]
     ],

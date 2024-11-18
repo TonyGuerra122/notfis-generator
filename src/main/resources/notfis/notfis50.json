@@ -851,7 +851,7 @@
             {
                 "name": "VALOR TOTAL DA NOTA",
                 "format": "N",
-                "size": 13,
+                "size": 15,
                 "position": 67,
                 "mandatory": true
             },
@@ -1002,14 +1002,14 @@
             {
                 "name": "PESO TOTAL CUBADO (VOLUME X DENSIDADE)",
                 "format": "N",
-                "size": 9,
+                "size": 10,
                 "position": 21,
                 "mandatory": false
             },
             {
                 "name": "PESO DENSIDADE/CUBAGEM",
                 "format": "N",
-                "size": 9,
+                "size": 10,
                 "position": 31,
                 "mandatory": false
             },
