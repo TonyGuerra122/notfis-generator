@@ -428,6 +428,13 @@
                 "mandatory": true
             },
             {
+                "name": "INSCRIÇÃO ESTADUAL",
+                "format": "A",
+                "size": 15,
+                "position": 68,
+                "mandatory": false
+            },
+            {
                 "name": "ENDEREÇO (LOGRADOURO)",
                 "format": "A",
                 "size": 50,
