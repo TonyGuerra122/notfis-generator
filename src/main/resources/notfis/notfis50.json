@@ -684,31 +684,24 @@
                 "mandatory": false
             },
             {
-                "name": "NÚMERO SAP, SHIPMENT, ETC.",
+                "name": "NÚMERO SAP, ACCOUNT, ETC. (#1)",
                 "format": "A",
                 "size": 20,
                 "position": 145,
                 "mandatory": false
             },
             {
-                "name": "OUTRO NÚMERO SAP, ACCOUNT, ETC. (#1)",
+                "name": "OUTRO NÚMERO SAP, ACCOUNT, ETC. (#2)",
                 "format": "A",
                 "size": 20,
                 "position": 165,
                 "mandatory": false
             },
             {
-                "name": "OUTRO NÚMERO SAP, ACCOUNT, ETC. (#2)",
-                "format": "A",
-                "size": 20,
-                "position": 185,
-                "mandatory": false
-            },
-            {
                 "name": "OUTRO NÚMERO SAP, ACCOUNT, ETC. (#3)",
                 "format": "A",
                 "size": 20,
-                "position": 205,
+                "position": 185,
                 "mandatory": false
             },
             {

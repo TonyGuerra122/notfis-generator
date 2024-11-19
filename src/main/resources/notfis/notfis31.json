@@ -389,6 +389,13 @@
                 "mandatory": false
             },
             {
+                "name": "AÇÃO DO DOCUMENTO",
+                "format": "A",
+                "size": 1,
+                "position": 213,
+                "mandatory": false
+            },
+            {
                 "name": "VALOR DO ICMS",
                 "format": "N",
                 "size": 12,
