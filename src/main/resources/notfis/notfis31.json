@@ -387,6 +387,13 @@
                 "size": 15,
                 "position": 198,
                 "mandatory": false
+            },
+            {
+                "name": "VALOR DO ICMS",
+                "format": "N",
+                "size": 12,
+                "position": 214,
+                "mandatory": false
             }
         ]
     ],

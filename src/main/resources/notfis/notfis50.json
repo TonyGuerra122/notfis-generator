@@ -886,7 +886,7 @@
             {
                 "name": "VALOR TOTAL DO ICMS",
                 "format": "N",
-                "size": 13,
+                "size": 15,
                 "position": 142,
                 "mandatory": false
             },
