@@ -18,11 +18,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up JDK 21 + Maven Central credentials
+      - name: Set up JDK 11 + Maven Central credentials
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "21"
+          java-version: "11"
           cache: maven
           server-id: central
           server-username: CENTRAL_USERNAME
