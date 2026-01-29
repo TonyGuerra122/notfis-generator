@@ -1,4 +1,4 @@
-package io.github.tonyguerra122.notfisgenerator;
+package com.tonyguerra.notfisgenerator;
 
 import java.util.Objects;
 

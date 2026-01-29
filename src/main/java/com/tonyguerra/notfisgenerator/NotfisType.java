@@ -1,4 +1,4 @@
-package io.github.tonyguerra122.notfisgenerator;
+package com.tonyguerra.notfisgenerator;
 
 public enum NotfisType {
     VERSION31("notfis31.json"), VERSION50("notfis50.json");
