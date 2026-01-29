@@ -67,10 +67,10 @@ O `JSON` especificado deve vir no seguinte formato:
 
 ### Instalação
 Este projeto oferece instalação via `Maven`:
-```bash
+```xml
   <dependency>
     <groupId>io.github.tonyguerra122</groupId>
     <artifactId>notfis-generator</artifactId>
-    <version>1.0.8</version>
+    <version>0.0.1</version>
   </dependency> 
 ```
