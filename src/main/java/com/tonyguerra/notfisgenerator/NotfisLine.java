@@ -1,4 +1,4 @@
-package io.github.tonyguerra122.notfisgenerator;
+package com.tonyguerra.notfisgenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public final class NotfisLine implements Comparable<NotfisLine> {
     private final List<NotfisField> field;
 
     public NotfisLine(String registration, List<NotfisField> field) {
-        this.registration = Integer.parseInt(registration);
+        this.registration = parseRegistration(registration);
         this.field = field;
     }
 
@@ -121,5 +121,37 @@ public final class NotfisLine implements Comparable<NotfisLine> {
         rearrangedLines.addAll(higherLines);
 
         return rearrangedLines;
+    }
+
+    private static int parseRegistration(String reg) {
+        if (reg == null || reg.isEmpty())
+            return Integer.MAX_VALUE;
+
+        // pega os 3 primeiros (ex: "312FARID..." -> "312")
+        if (reg.length() >= 3) {
+            String prefix = reg.substring(0, 3);
+            try {
+                return Integer.parseInt(prefix);
+            } catch (NumberFormatException ignored) {
+            }
+        }
+
+        // fallback: tenta parsear dígitos iniciais
+        final var sb = new StringBuilder();
+        for (int i = 0; i < reg.length(); i++) {
+            char c = reg.charAt(i);
+            if (Character.isDigit(c))
+                sb.append(c);
+            else
+                break;
+        }
+        if (sb.length() > 0) {
+            try {
+                return Integer.parseInt(sb.toString());
+            } catch (NumberFormatException ignored) {
+            }
+        }
+
+        return Integer.MAX_VALUE;
     }
 }
