@@ -6,7 +6,7 @@
     <name>notfis-generator</name>
     <groupId>io.github.tonyguerra122</groupId>
     <artifactId>notfis-generator</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <description>Biblioteca para gerar Notfis EDI no formato 3.1/5.0</description>
     <url>https://github.com/TonyGuerra122/notfis-generator</url>
     <packaging>jar</packaging>
