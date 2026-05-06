@@ -27,6 +27,49 @@ public final class NotfisWriter {
         this.lines = new ArrayList<NotfisLine>();
     }
 
+    /**
+     * Método auxiliar para processar o conteúdo do JSON de configuração.
+     * Evita repetição de código entre a tentativa principal e o fallback.
+     */
+    private Map<String, List<NotfisConfigField>> processInputStream(InputStream is)
+            throws IOException, NotfisException {
+        // Adicionado um List<> extra no TypeReference para bater com o seu JSON
+        // [[{...}]]
+        final TypeReference<Map<String, List<List<Map<String, Object>>>>> tr = new TypeReference<Map<String, List<List<Map<String, Object>>>>>() {
+        };
+
+        final Map<String, List<List<Map<String, Object>>>> raw = MAPPER.readValue(is, tr);
+        final Map<String, List<NotfisConfigField>> parsed = new HashMap<>();
+
+        for (Map.Entry<String, List<List<Map<String, Object>>>> entry : raw.entrySet()) {
+            final String identifier = entry.getKey();
+
+            // Como o JSON tem [[ ]], pegamos a primeira lista interna (index 0)
+            final List<Map<String, Object>> fields = (entry.getValue() != null && !entry.getValue().isEmpty())
+                    ? entry.getValue().get(0)
+                    : null;
+
+            final List<NotfisConfigField> configFields = new ArrayList<>();
+            if (fields != null) {
+                for (Map<String, Object> f : fields) {
+                    final String name = asString(f.get("name"));
+                    final String formatStr = asStringOrDefault(f.get("format"), "A");
+                    final NotfisFieldType format = "A".equalsIgnoreCase(formatStr)
+                            ? NotfisFieldType.ALPHANUMERIC
+                            : NotfisFieldType.NUMERIC;
+
+                    final short position = asShort(f.get("position"));
+                    final short size = asShort(f.get("size"));
+                    final boolean mandatory = asBoolean(f.get("mandatory"));
+
+                    configFields.add(new NotfisConfigField(name, format, position, size, mandatory));
+                }
+            }
+            parsed.put(identifier, configFields);
+        }
+        return parsed;
+    }
+
     private void loadConfigFile() throws NotfisException {
         if (this.configMap != null) {
             return; // cache
@@ -38,44 +81,24 @@ public final class NotfisWriter {
 
         final String configFilename = "notfis/" + type.getConfigFilename();
 
-        try (java.io.InputStream is = getClass().getClassLoader().getResourceAsStream(configFilename)) {
-            if (is == null) {
-                throw new NotfisException("Arquivo de configuração não encontrado: " + configFilename);
+        // 1ª Tentativa: Usando o Class da própria biblioteca (Mais seguro no Linux/JAR)
+        try (InputStream is = NotfisWriter.class.getResourceAsStream("/" + configFilename)) {
+            if (is != null) {
+                this.configMap = processInputStream(is);
+                return;
             }
 
-            final TypeReference<Map<String, List<Map<String, Object>>>> tr = new TypeReference<Map<String, List<Map<String, Object>>>>() {
-            };
-
-            final Map<String, List<Map<String, Object>>> raw = MAPPER.readValue(is, tr);
-
-            final Map<String, List<NotfisConfigField>> parsed = new HashMap<String, List<NotfisConfigField>>();
-
-            for (Map.Entry<String, List<Map<String, Object>>> entry : raw.entrySet()) {
-                final String identifier = entry.getKey();
-                final List<Map<String, Object>> fields = entry.getValue();
-
-                final List<NotfisConfigField> configFields = new ArrayList<NotfisConfigField>();
-
-                if (fields != null) {
-                    for (Map<String, Object> f : fields) {
-                        final String name = asString(f.get("name"));
-                        final String formatStr = asStringOrDefault(f.get("format"), "A");
-                        final NotfisFieldType format = "A".equalsIgnoreCase(formatStr)
-                                ? NotfisFieldType.ALPHANUMERIC
-                                : NotfisFieldType.NUMERIC;
-
-                        final short position = asShort(f.get("position"));
-                        final short size = asShort(f.get("size"));
-                        final boolean mandatory = asBoolean(f.get("mandatory"));
-
-                        configFields.add(new NotfisConfigField(name, format, position, size, mandatory));
-                    }
+            // 2ª Tentativa (Fallback): Usando o ClassLoader caso o de cima falhe por
+            // contexto de execução
+            try (InputStream isFallback = NotfisWriter.class.getClassLoader().getResourceAsStream(configFilename)) {
+                if (isFallback != null) {
+                    this.configMap = processInputStream(isFallback);
+                    return;
                 }
 
-                parsed.put(identifier, configFields);
+                // Se ambos forem nulos, o arquivo realmente não foi encontrado no classpath
+                throw new NotfisException("Arquivo de configuração não encontrado no JAR/Classpath: " + configFilename);
             }
-
-            this.configMap = parsed;
 
         } catch (IOException ex) {
             throw new NotfisException("Erro ao carregar o arquivo de configuração: " + configFilename, ex);
